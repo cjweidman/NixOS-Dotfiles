@@ -308,8 +308,6 @@
     '';
   };
 
-};
-
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
