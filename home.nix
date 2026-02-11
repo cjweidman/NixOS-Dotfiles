@@ -18,22 +18,40 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    pkgs.hello
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    # Hyprland ecosystem
+    kitty
+    dolphin
+    rofi-wayland
+    waybar
+    mako
+    swww
+    hypridle
+    hyprlock
+    hyprpicker
+    hyprshot
 
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+    # Apps
+    bitwarden-desktop
+    vesktop
+    obsidian
+    firefox
+    vscode
+
+    # Audio/visual/monitoring
+    cava
+    pavucontrol
+    cliphist
+    btop
+
+    # Shell/tools
+    zsh-autocomplete
+    zsh-autosuggestions
+    nano
+    nano-syntax-highlighting
+    fzf
+    starship
+
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -68,6 +86,12 @@
   #  /etc/profiles/per-user/cjweidman/etc/profile.d/hm-session-vars.sh
   #
 
+  # starship
+  programs.starship.enable = true;
+
+  # fzf
+  programs.fzf.enable = true;
+
   # zsh
   programs.zsh = {
     enable = true;
@@ -81,7 +105,7 @@
     '';
   };
 
-
+  #hyprland
   wayland.windowManager.hyprland = {
     enable = true;
 
