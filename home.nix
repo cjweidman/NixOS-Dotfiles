@@ -104,6 +104,14 @@
     '';
   };
 
+  # kitty
+  programs.kitty = {
+    enable = true;
+    settings = {
+      linux_display_server = "wayland";
+    };
+  };
+
   #hyprland
   wayland.windowManager.hyprland = {
     enable = true;
@@ -122,7 +130,7 @@
       ];
 
       # PROGRAM VARIABLES
-      "$terminal" = "kitty --wayland";
+      "$terminal" = "kitty";
       "$fileManager" = "thunar";
       "$menu" = "rofi -show drun";
 
