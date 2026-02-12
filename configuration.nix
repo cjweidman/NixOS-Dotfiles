@@ -71,6 +71,12 @@
   greetd
   ];
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+  services.spice-vdagentd.enable = true;
+
   services.greetd = {
     enable = true;
     settings = {
@@ -80,7 +86,7 @@
       };
     };
   };
-  
+
   security.polkit.enable = true;
 
   # Fonts
