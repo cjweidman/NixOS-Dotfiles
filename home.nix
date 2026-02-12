@@ -305,15 +305,16 @@
       ];
 
       windowrule = [
-        # Ignore maximize requests
         "suppressevent maximize, class:.*"
+      ];
 
-        # Fix XWayland drags
-        "nofocus, xwayland:1, floating:1"
+      windowrulev2 = [
+        # Fix some dragging issues with XWayland
+        "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
 
-        # Move hyprland-run
-        "float, class:hyprland-run"
-        "move 20 monitor_h-120, class:hyprland-run"
+        # hyprland-run placement
+        "float, class:^(hyprland-run)$"
+        "move 20 100%-120, class:^(hyprland-run)$"
       ];
     };
   };
