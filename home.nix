@@ -110,6 +110,9 @@
     settings = {
       linux_display_server = "wayland";
     };
+    extraConfig = ''
+      export KITTY_LINUX_DISPLAY_SERVER=wayland
+    '';
   };
 
   #hyprland
