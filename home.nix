@@ -303,33 +303,22 @@
         ",XF86AudioPlay, exec, playerctl play-pause"
         ",XF86AudioPrev, exec, playerctl previous"
       ];
+
+      windowrulev2 = [
+        # 1) Ignore maximize requests from all apps
+        "suppressevent maximize, class:.*"
+
+        # 2) Fix some dragging issues with XWayland
+        # (matches: empty class + empty title + xwayland + floating + not fullscreen + not pinned)
+        "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
+
+        # 3) Hyprland-run: float + move
+        "float, class:^(hyprland-run)$"
+        # Hyprland doesn't support `monitor_h-120` in window rules; use fixed coords instead.
+        # Pick a Y you like; 80 is a safe start.
+        "move 20 80, class:^(hyprland-run)$"
+      ];
     };
-
-    extraConfig = ''
-      windowrule {
-        name = suppress-maximize-events
-        match:class = .*
-        suppress_event = maximize
-      }
-
-      windowrule {
-        name = fix-xwayland-drags
-        match:class = ^$
-        match:title = ^$
-        match:xwayland = true
-        match:float = true
-        match:fullscreen = false
-        match:pin = false
-        no_focus = true
-      }
-
-      windowrule {
-        name = move-hyprland-run
-        match:class = hyprland-run
-        move = 20 monitor_h-120
-        float = yes
-      }
-    '';
   };
 
   home.sessionVariables = {
