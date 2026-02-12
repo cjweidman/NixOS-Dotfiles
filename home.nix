@@ -119,7 +119,10 @@
       env = [
         "XCURSOR_SIZE,24"
         "HYPRCURSOR_SIZE,24"
+
+        # Work around virgl/EGL crashes in VMs
         "LIBGL_ALWAYS_SOFTWARE,1"
+        "WLR_RENDERER_ALLOW_SOFTWARE,1"
       ];
 
       # PROGRAM VARIABLES
