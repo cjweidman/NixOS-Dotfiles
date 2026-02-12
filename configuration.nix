@@ -75,13 +75,14 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd '${pkgs.dbus}/bin/dbus-run-session Hyprland'";
         user = "cjweidman";
       };
     };
   };
 
   security.polkit.enable = true;
+  hardware.graphics.enable = true;
 
   # Fonts
   fonts.packages = with pkgs; [
