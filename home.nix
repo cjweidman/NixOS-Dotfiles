@@ -21,8 +21,8 @@
 
     # Hyprland ecosystem
     kitty
-    thunar
-    rofi-wayland
+    xfce.thunar
+    rofi
     waybar
     mako
     swww
@@ -48,7 +48,6 @@
     zsh-autocomplete
     zsh-autosuggestions
     nano
-    nano-syntax-highlighting
     fzf
     starship
 
