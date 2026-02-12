@@ -129,8 +129,6 @@
 
       # AUTOSTART
       exec-once = [
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_SESSION_TYPE XDG_CURRENT_DESKTOP"
-        "systemctl --user import-environment WAYLAND_DISPLAY XDG_SESSION_TYPE XDG_CURRENT_DESKTOP"
         "waybar"
         "mako"
       ];
@@ -306,19 +304,16 @@
         ",XF86AudioPrev, exec, playerctl previous"
       ];
 
-      windowrulev2 = [
-        # 1) Ignore maximize requests from all apps
+      windowrule = [
+        # Ignore maximize requests
         "suppressevent maximize, class:.*"
 
-        # 2) Fix some dragging issues with XWayland
-        # (matches: empty class + empty title + xwayland + floating + not fullscreen + not pinned)
-        "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
+        # Fix XWayland drags
+        "nofocus, xwayland:1, floating:1"
 
-        # 3) Hyprland-run: float + move
-        "float, class:^(hyprland-run)$"
-        # Hyprland doesn't support `monitor_h-120` in window rules; use fixed coords instead.
-        # Pick a Y you like; 80 is a safe start.
-        "move 20 80, class:^(hyprland-run)$"
+        # Move hyprland-run
+        "float, class:hyprland-run"
+        "move 20 monitor_h-120, class:hyprland-run"
       ];
     };
   };
