@@ -122,7 +122,7 @@
       ];
 
       # PROGRAM VARIABLES
-      "$terminal" = "kitty";
+      "$terminal" = "kitty --wayland";
       "$fileManager" = "thunar";
       "$menu" = "rofi -show drun";
 
