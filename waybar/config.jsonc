@@ -1,0 +1,255 @@
+// -*- mode: jsonc -*-
+//                       _
+//  __      ____ _ _   _| |__   __ _ _ __
+//  \ \ /\ / / _` | | | | '_ \ / _` | '__|
+//   \ V  V / (_| | |_| | |_) | (_| | |
+//    \_/\_/ \__,_|\__, |_.__/ \__,_|_|
+//                 |___/ CONFIG
+//  MAIN LAYOUT --------------------------
+{
+	"reload_style_on_change": true,
+	"layer": "top",
+	"position": "top",
+	"margin-top": 0,
+	"margin-right": 0,
+	"margin-left": 0,
+	"modules-left": [
+		"group/powergroup",
+		"hyprland/workspaces",
+		"group/cpugroup",
+		"group/memorygroup",
+		"group/diskgroup"
+	],
+
+	"modules-right": [
+		"group/networkgroup",
+		"group/usergroup",
+		"group/clockgroup",
+		"group/volumegroup"
+	],
+		
+	//  LEFT MODULES -------------------------
+
+	"group/powergroup": {
+		"orientation": "horizontal",
+		"drawer": {
+			"transition-duration": 300,
+			"children-class": "power-children"
+		},
+		"modules": [
+			"custom/arch",
+			"custom/power",
+			"custom/restart",
+			"custom/lock",
+			"custom/logout"
+		]
+	},
+
+	"custom/arch": {
+		"format": "",
+		"tooltip": false,
+		"on-click": "kitty"
+	},
+
+	"custom/power": {
+		"format": "⏻",
+		"tooltip": false,
+		"on-click": "systemctl poweroff"
+	},
+
+	"custom/restart": {
+		"format": "",
+		"tooltip": false,
+		"on-click": "systemctl reboot"
+	},
+
+	"custom/lock": {
+		"format": "",
+		"tooltip": false,
+		"on-click": "hyprlock"
+	},
+
+	"custom/logout": {
+		"format": "",
+		"tooltip": false,
+		"on-click": "hyprctl dispatch exit"
+	},
+
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"format-icons": {
+		"active": "[+]",
+		"persistent": "[+]",
+		"empty": "[ ]"
+		},
+		"persistent-workspaces": {
+				"*": 5
+		}
+	},
+
+	"group/cpugroup": {
+		"orientation": "horizontal",
+		"modules": [
+			"custom/cpu",
+			"cpu",
+			"custom/end"
+		]
+	},	
+
+	"group/memorygroup": {
+		"orientation": "horizontal",
+		"modules": [
+			"custom/memory",
+			"memory",
+			"custom/end"
+		]
+	},
+
+	"custom/cpu": {
+		"format": "[CPU_",
+		"on-click": "kitty btop",
+		"tooltip": false
+	},
+
+	"cpu": {
+		"interval": 1,
+		"format": "{}%",
+		"max-length": 10,
+		"on-click": "kitty btop",
+		"tooltip": false
+	},
+
+	"custom/memory": {
+		"format": "[RAM_",
+		"on-click": "kitty btop",
+		"tooltip": false
+	},
+
+	"memory": {
+		"interval": 30,
+		"format": "{}%",
+		"max-length": 10,
+		"on-click": "kitty btop",
+		"tooltip": false
+	},
+
+	"custom/end": {
+		"format": "]",
+		"tooltip": false
+	},
+
+	"group/diskgroup": {
+		"orientation": "horizontal",
+		"modules": [
+			"custom/disk",
+			"disk",
+			"custom/end"
+		]
+	},
+
+	"custom/disk": {
+		"format": "[HD_",
+		"on-click": "kitty btop",
+		"tooltip": false
+	},
+
+	"disk": {
+		"interval": 30,
+		"format": "{specific_used:0.2f}/{specific_total:0.2f}GB",
+		"unit": "GB",
+		"on-click": "kitty btop",
+		"tooltip": false
+	},
+
+	//  CENTER MODULES -----------------------
+
+	//  RIGHT MODULES ------------------------
+
+	"group/networkgroup": {
+		"orientation": "horizontal",
+		"modules": [
+			"custom/network",
+			"network",
+			"custom/end"
+		]
+	},	
+
+	"custom/network": {
+		"format": "[NW_",
+		"tooltip": false
+	},
+
+	"group/usergroup": {
+		"orientation": "horizontal",
+		"modules": [
+			"custom/user",
+			"user",
+			"custom/end"
+		]
+	},	
+
+	"custom/user": {
+		"format": "[ID_",
+		"tooltip": false
+	},
+
+	"user": {
+        "format": "{user}",
+        "interval": 60,
+        "height": 30,
+        "width": 30,
+        "icon": true
+	},
+
+	"network": {
+		"interface": "ens18",
+		"format": "{ifname}",
+		"max-length": 50,
+		"tooltip": false
+	},
+
+	"group/clockgroup": {
+		"orientation": "horizontal",
+		"modules": [
+			"clock#date",
+			"clock#time",
+			"custom/end"
+		]
+	},	
+
+	"clock#date": {
+		"interval": 60,
+		"format": "[{:%m%d_%Y_}",
+		"tooltip": false
+	},
+
+	"clock#time": {
+		"interval": 60,
+		"format": "{:%H%M}",
+		"tooltip": false
+	},
+
+	"group/volumegroup": {
+		"orientation": "horizontal",
+		"modules": [
+			"custom/volume",
+			"wireplumber",
+			"custom/end"
+		],
+		"tooltip": false
+	},	
+
+	"custom/volume": {
+		"format": "[VOL_",
+		"tooltip": false
+	},
+
+	"wireplumber": {
+		"format": "{volume}%",
+		"format-muted": "MUTE",
+		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+		"on-click-right": "pavucontrol",
+		"scroll-step": 5,
+		"tooltip": false
+	}
+}

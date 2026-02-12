@@ -1,0 +1,154 @@
+/*                       _
+    __      ____ _ _   _| |__   __ _ _ __
+    \ \ /\ / / _` | | | | '_ \ / _` | '__|
+     \ V  V / (_| | |_| | |_) | (_| | |
+      \_/\_/ \__,_|\__, |_.__/ \__,_|_|
+                   |___/ CSS
+*/
+
+
+/*  COLORS  ------------------------------ */
+
+@import "../../.cache/wal/colors-waybar.css";
+
+/*  GLOBAL  ------------------------------ */
+
+* {
+	font-family: "JetBrainsMono Nerd Font";
+	font-size: 18px;
+	transition: all 0.15s ease;
+	font-weight: 500;
+	border-radius: 0px
+}
+
+window#waybar {
+    border: 2px solid @color8;
+	background: @background;
+}
+
+label.module {
+	color: @foreground;
+}
+
+#cpugroup:hover,
+#memorygroup:hover,
+#diskgroup:hover,
+#networkgroup:hover,
+#usergroup:hover,
+#clockgroup:hover,
+#volumegroup:hover {
+	background: alpha(@foreground, 0.15);
+}
+
+/*  POWER GROUP  ------------------------- */
+
+#powergroup {
+	padding: 10px 13px 10px 12px;
+	background: @color8;
+}
+
+#powergroup:hover {
+	background: transparent;
+}
+
+#powergroup #custom-arch {
+	margin: 0px 5px 0px 3px;
+	color: @foreground;
+}
+
+#powergroup .power-children label {
+	margin: 0px 5px 0px 15px;
+	color: @color8;
+}
+
+#powergroup #custom-arch:hover,
+#powergroup #custom-power:hover,
+#powergroup #custom-restart:hover,
+#powergroup #custom-lock:hover,
+#powergroup #custom-logout:hover {
+  color: @foreground;
+}
+
+
+/*  WORKSPACES  -------------------------- */
+
+#workspaces {
+	border-right: 1px solid @color8;
+	border-left: 1px solid @color8;
+}
+
+#workspaces button {
+	background: transparent;
+	padding: 1px 4px;
+	border-right: 1px solid @color8;
+	border-left: 1px solid @color8;
+}
+
+#workspaces button label {
+	color: @color8;
+	font-size: 23px;
+	font-weight: 400;
+	letter-spacing: -4px;
+}
+
+#workspaces button.empty label {
+	color: @color8;
+}
+
+#workspaces button.active label {
+	color: @foreground;
+}
+
+#workspaces button.active {
+
+}
+
+#workspaces button:hover {
+	background: alpha(@foreground, 0.15);
+}
+
+/*  CPU & RAM GROUP  --------------------------- */
+
+#cpugroup {
+	padding: 0px 10px;
+	border-right: 2px solid @color8;
+}
+
+#memorygroup, #diskgroup {
+	padding: 0px 10px;
+	border-right: 2px solid @color8;
+}
+
+#custom-cpu, #custom-end, #custom-memory, #custom-network, #custom-user, #custom-volume, #custom-disk {
+	color: @color8;
+}
+
+/*  CLOCK  ------------------------------- */
+
+#networkgroup {
+	padding: 0px 10px;
+	border-left: 2px solid @color8;
+}
+
+#usergroup {
+	padding: 0px 10px;
+	border-left: 2px solid @color8;
+}
+
+#network, #user, #wireplumber {
+	color: @foreground;
+}
+
+#clockgroup {
+	padding: 0px 10px;
+	border-right: 2px solid @color8;
+	border-left: 2px solid @color8;
+}
+
+#volumegroup {
+	padding: 0px 10px;
+}
+
+#clock.date {
+  color: @color8;
+}
