@@ -20,7 +20,7 @@
   home.packages = with pkgs; [
 
     # Hyprland ecosystem
-    kitty
+    foot
     xfce.thunar
     rofi
     waybar
@@ -104,17 +104,6 @@
     '';
   };
 
-  # kitty
-  programs.kitty = {
-    enable = true;
-    settings = {
-      linux_display_server = "wayland";
-    };
-    extraConfig = ''
-      export KITTY_LINUX_DISPLAY_SERVER=wayland
-    '';
-  };
-
   #hyprland
   wayland.windowManager.hyprland = {
     enable = true;
@@ -131,12 +120,10 @@
         "XCURSOR_SIZE,24"
         "HYPRCURSOR_SIZE,24"
         "LIBGL_ALWAYS_SOFTWARE,1"
-        "MESA_LOADER_DRIVER_OVERRIDE,llvmpipe"
-        "WLR_RENDERER_ALLOW_SOFTWARE,1"
       ];
 
       # PROGRAM VARIABLES
-      "$terminal" = "kitty";
+      "$terminal" = "foot";
       "$fileManager" = "thunar";
       "$menu" = "rofi -show drun";
 

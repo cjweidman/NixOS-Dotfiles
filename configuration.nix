@@ -71,11 +71,6 @@
   greetd
   ];
 
-  hardware.graphics = {
-    enable = true;
-  };
-  services.spice-vdagentd.enable = true;
-
   services.greetd = {
     enable = true;
     settings = {
