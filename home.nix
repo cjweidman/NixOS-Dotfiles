@@ -21,7 +21,7 @@
 
     # Hyprland ecosystem
     kitty
-    dolphin
+    thunar
     rofi-wayland
     waybar
     mako
@@ -124,7 +124,7 @@
 
       # PROGRAM VARIABLES
       "$terminal" = "kitty";
-      "$fileManager" = "dolphin";
+      "$fileManager" = "thunar";
       "$menu" = "rofi -show drun";
 
       # AUTOSTART
