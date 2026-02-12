@@ -130,6 +130,9 @@
       env = [
         "XCURSOR_SIZE,24"
         "HYPRCURSOR_SIZE,24"
+        "LIBGL_ALWAYS_SOFTWARE,1"
+        "MESA_LOADER_DRIVER_OVERRIDE,llvmpipe"
+        "WLR_RENDERER_ALLOW_SOFTWARE,1"
       ];
 
       # PROGRAM VARIABLES
