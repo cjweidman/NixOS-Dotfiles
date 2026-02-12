@@ -112,7 +112,7 @@
 
       # MONITOR (repeatable => list of strings)
       monitor = [
-        ",preferred,auto,auto"
+        ",3456x2234@60,auto,auto"
       ];
 
       # ENV (repeatable => list of strings)
