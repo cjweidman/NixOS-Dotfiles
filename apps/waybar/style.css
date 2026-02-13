@@ -9,7 +9,7 @@
 
 /*  COLORS  ------------------------------ */
 
-@import "../../.cache/wal/colors-waybar.css";
+@import url("file:///home/cjweidman/.cache/wal/colors-waybar.css");
 
 /*  GLOBAL  ------------------------------ */
 

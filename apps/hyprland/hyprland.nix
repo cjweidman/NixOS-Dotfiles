@@ -7,6 +7,10 @@
 
     settings = {
 
+      source = [
+        "~/.cache/wal/colors-hyprland.conf"
+      ];
+
       # MONITOR (repeatable => list of strings)
       monitor = [
         ",3456x2234@120,auto,auto"
@@ -25,6 +29,7 @@
 
       # AUTOSTART
       exec-once = [
+        "sh -lc 'wal --theme custom/bbOS --cols16'"
         "waybar"
         "mako"
         "sh -lc 'pgrep -x swww-daemon >/dev/null || swww-daemon'"
@@ -36,8 +41,8 @@
         gaps_in = 5;
         gaps_out = 10;
         border_size = 1;
-          "col.active_border" = "rgba(d7d7d7ff)";
-          "col.inactive_border" = "rgba(6b6b6bff)";
+          "col.active_border" = "$color2 $color1 45deg";
+          "col.inactive_border" = "$color0";
         resize_on_border = false;
         allow_tearing = false;
         layout = "dwindle";
