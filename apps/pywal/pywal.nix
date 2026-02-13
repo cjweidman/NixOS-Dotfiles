@@ -18,8 +18,11 @@ let
   walColorSchemes = pkgs.runCommand "wal-colorschemes" {} ''
     set -euo pipefail
     mkdir -p "$out"
-    cp -R ${pywalRepo}/pywal/colorschemes/* "$out/"
 
+    # copy contents of colorschemes (dark/, light/, etc.) into $out
+    cp -a ${pywalRepo}/pywal/colorschemes/. "$out/"
+
+    mkdir -p "$out/dark"
     cat > "$out/dark/bbOS.json" <<'EOF'
     {
       "wallpaper": "",
@@ -52,6 +55,7 @@ let
     }
 EOF
   '';
+
 in
 {
   programs.pywal = {
