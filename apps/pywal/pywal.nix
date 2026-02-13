@@ -63,12 +63,11 @@ in
     package = pkgs.pywal16;
   };
 
-  # enables: wal --theme base16-...
-  xdg.configFile."wal/colorschemes" = {
-    source = walColorSchemes;
-    recursive = true;
-    force = true;
-  };
+    home.file.".config/wal/colorschemes" = {
+        source = walColorSchemes;
+        recursive = true;
+        force = true;
+    };
 
   # enables template-driven outputs in ~/.cache/wal/ for apps
   xdg.configFile."wal/templates".source = "${pywalExtra}/templates";
