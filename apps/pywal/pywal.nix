@@ -66,6 +66,7 @@ in
   # enables: wal --theme base16-...
   xdg.configFile."wal/colorschemes" = {
     source = walColorSchemes;
+    recursive = true;
     force = true;
   };
 
