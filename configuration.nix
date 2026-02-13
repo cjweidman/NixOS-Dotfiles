@@ -69,7 +69,12 @@
   fastfetch
   hyprland
   greetd
+  terminus_font
   ];
+
+  console = {
+    font = "JetBrainsMono Nerd Font";
+  };
 
   services.greetd = {
     enable = true;
@@ -94,7 +99,10 @@
   ];
 
   # Set zsh as shell
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+  };
+
   users.defaultUserShell = pkgs.zsh;
 
   # enable Hyprland

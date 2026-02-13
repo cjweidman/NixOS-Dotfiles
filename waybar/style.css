@@ -15,134 +15,112 @@
 
 * {
 	font-family: "JetBrainsMono Nerd Font";
-	font-size: 18px;
+	font-size: 15px;
 	transition: all 0.15s ease;
 	font-weight: 500;
 	border-radius: 0px
 }
 
 window#waybar {
-    border: 2px solid @color8;
+    border: 1px solid #d7d7d7;
 	background: @background;
 }
 
 label.module {
-	color: @foreground;
-}
-
-#cpugroup:hover,
-#memorygroup:hover,
-#diskgroup:hover,
-#networkgroup:hover,
-#usergroup:hover,
-#clockgroup:hover,
-#volumegroup:hover {
-	background: alpha(@foreground, 0.15);
+	color: #d7d7d7;
 }
 
 /*  POWER GROUP  ------------------------- */
 
 #powergroup {
-	padding: 10px 13px 10px 12px;
-	background: @color8;
+	padding: 8px 13px 8px 12px;
+	background: #ed3d22;
 }
 
-#powergroup:hover {
-	background: transparent;
-}
 
 #powergroup #custom-arch {
-	margin: 0px 5px 0px 3px;
-	color: @foreground;
+	margin: 0px 5px 0px 0px;
+	font-size: 18px;
+	color: #000000;
 }
 
 #powergroup .power-children label {
-	margin: 0px 5px 0px 15px;
-	color: @color8;
+	margin: 0px 5px 0px 20px;
+	color: #000000;
 }
 
-#powergroup #custom-arch:hover,
-#powergroup #custom-power:hover,
-#powergroup #custom-restart:hover,
-#powergroup #custom-lock:hover,
-#powergroup #custom-logout:hover {
-  color: @foreground;
+#powergroup #custom-arch,
+#powergroup #custom-power,
+#powergroup #custom-restart,
+#powergroup #custom-lock,
+#powergroup #custom-logout {
+  color: #000000;
 }
 
 
 /*  WORKSPACES  -------------------------- */
 
 #workspaces {
-	border-right: 1px solid @color8;
-	border-left: 1px solid @color8;
+
 }
 
 #workspaces button {
 	background: transparent;
-	padding: 1px 4px;
-	border-right: 1px solid @color8;
-	border-left: 1px solid @color8;
+	padding: 1px 6px;
+	border-right: 1px solid #d7d7d7;
 }
 
 #workspaces button label {
-	color: @color8;
-	font-size: 23px;
-	font-weight: 400;
-	letter-spacing: -4px;
+	color: #d7d7d7;
+	font-size: 18px;
+	font-weight: 300;
+	letter-spacing: -3px;
 }
 
 #workspaces button.empty label {
-	color: @color8;
+	color: #d7d7d7;
 }
 
 #workspaces button.active label {
-	color: @foreground;
-}
-
-#workspaces button.active {
-
-}
-
-#workspaces button:hover {
-	background: alpha(@foreground, 0.15);
+	color: #ed3d22;
 }
 
 /*  CPU & RAM GROUP  --------------------------- */
 
 #cpugroup {
 	padding: 0px 10px;
-	border-right: 2px solid @color8;
+	border-right: 1px solid #d7d7d7;
 }
 
 #memorygroup, #diskgroup {
 	padding: 0px 10px;
-	border-right: 2px solid @color8;
+	border-right: 1px solid #d7d7d7;
 }
 
 #custom-cpu, #custom-end, #custom-memory, #custom-network, #custom-user, #custom-volume, #custom-disk {
-	color: @color8;
+	color: #d7d7d7;
 }
 
 /*  CLOCK  ------------------------------- */
 
 #networkgroup {
 	padding: 0px 10px;
-	border-left: 2px solid @color8;
+	border-left: 1px solid #d7d7d7;
 }
 
 #usergroup {
 	padding: 0px 10px;
-	border-left: 2px solid @color8;
+	border-left: 1px solid #d7d7d7;
 }
 
 #network, #user, #wireplumber {
-	color: @foreground;
+	color: #d7d7d7;
 }
 
 #clockgroup {
 	padding: 0px 10px;
-	border-right: 2px solid @color8;
-	border-left: 2px solid @color8;
+	border-right: 1px solid #d7d7d7;
+	border-left: 1px solid #d7d7d7;
 }
 
 #volumegroup {
@@ -150,5 +128,5 @@ label.module {
 }
 
 #clock.date {
-  color: @color8;
+  color: #d7d7d7;
 }

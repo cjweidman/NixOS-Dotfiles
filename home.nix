@@ -1,10 +1,53 @@
 { config, pkgs, ... }:
 
+
+let
+c0 = "000000"; # background
+c1 = "d7d7d7"; # foreground
+c2 = "6b6b6b"; # muted
+c3 = "ed3d22"; # accent
+
+pal = [
+  c0 c1 c2 c3
+  c0 c1 c2 c3
+  c0 c1 c2 c3
+  c0 c1 c2 c3
+];
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "cjweidman";
   home.homeDirectory = "/home/cjweidman";
+
+  xdg.enable = true;
+  # Put your real files next to home.nix, e.g. ./waybar/config.jsonc and ./waybar/style.css
+  xdg.configFile."waybar/config.jsonc".source = ./waybar/config.jsonc;
+  xdg.configFile."waybar/style.css".source   = ./waybar/style.css;
+
+  xdg.configFile."btop/themes/my4.theme".text = ''
+  theme[main_bg]="#000000"
+  theme[main_fg]="#d7d7d7"
+
+  theme[title]="#d7d7d7"
+  theme[hi_fg]="#ed3d22"
+  theme[selected_bg]="#6b6b6b"
+  theme[selected_fg]="#d7d7d7"
+
+  theme[inactive_fg]="#6b6b6b"
+
+  theme[proc_misc]="#ed3d22"
+  theme[cpu_box]="#6b6b6b"
+  theme[mem_box]="#6b6b6b"
+  theme[net_box]="#6b6b6b"
+
+  theme[graph_text]="#d7d7d7"
+  theme[graph_line]="#ed3d22"
+  theme[temp_start]="#6b6b6b"
+  theme[temp_mid]="#ed3d22"
+  theme[temp_end]="#ed3d22"
+  '';
+
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -17,9 +60,19 @@
   nixpkgs.config.allowUnfree = true;
   # The home.packages option allows you to install Nix packages into your
   # environment.
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.capitaine-cursors;
+    name = "capitaine-cursors";
+    size = 28;
+  };
+
   home.packages = with pkgs; [
 
     # Hyprland ecosystem
+    pywal16
     foot
     xfce.thunar
     rofi
@@ -30,6 +83,7 @@
     hyprlock
     hyprpicker
     hyprshot
+    capitaine-cursors
 
     # Apps
     bitwarden-desktop
@@ -95,6 +149,10 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
+      "nixupdate" = ''
+        sudo nixos-rebuild switch --flake .
+        home-manager switch --flake .
+      '';
       ".." = "cd ..";
     };
     initContent = ''
@@ -102,6 +160,53 @@
         fastfetch
       fi
     '';
+  };
+
+# btop
+programs.btop = {
+  enable = true;
+  settings = {
+    color_theme = "my4";
+  };
+};
+
+# foot
+  programs.foot = {
+    enable = true;
+
+    settings = {
+      main = {
+        font = "JetBrainsMono Nerd Font:size=9";
+        pad = "30x30";
+        };
+      colors = {
+        background = c0;
+        foreground = c1;
+        alpha = 1.0;
+
+        # regular (0–7)
+        regular0 = c0;
+        regular1 = c0;
+        regular2 = c0;
+        regular3 = c0;
+
+        regular4 = c2;
+        regular5 = c2;
+        regular6 = c2;
+        regular7 = c2;
+
+        # bright (8–15)
+        bright0 = c3;
+        bright1 = c3;
+        bright2 = c3;
+        bright3 = c3;
+
+        bright4 = c1;
+        bright5 = c1;
+        bright6 = c1;
+        bright7 = c1;
+      };
+    };
   };
 
   #hyprland
@@ -112,13 +217,13 @@
 
       # MONITOR (repeatable => list of strings)
       monitor = [
-        ",3456x2234@60,auto,auto"
+        ",3456x2234@120,auto,auto"
       ];
 
       # ENV (repeatable => list of strings)
       env = [
-        "XCURSOR_SIZE,24"
-        "HYPRCURSOR_SIZE,24"
+        "XCURSOR_THEME,capitaine-cursors"
+        "XCURSOR_SIZE,28"
       ];
 
       # PROGRAM VARIABLES
@@ -130,24 +235,26 @@
       exec-once = [
         "waybar"
         "mako"
+        "sh -lc 'pgrep -x swww-daemon >/dev/null || swww-daemon'"
+        "sh -lc 'swww img ${config.home.homeDirectory}/Pictures/Wallpapers/blkOS_WP1.png --transition-type none'"
       ];
 
       # LOOK & FEEL (sections => attrsets)
       general = {
         gaps_in = 5;
-        gaps_out = 20;
-        border_size = 2;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        gaps_out = 10;
+        border_size = 1;
+          "col.active_border" = "rgba(d7d7d7ff)";
+          "col.inactive_border" = "rgba(6b6b6bff)";
         resize_on_border = false;
         allow_tearing = false;
         layout = "dwindle";
       };
 
       decoration = {
-        rounding = 10;
-        active_opacity = 1.0;
-        inactive_opacity = 1.0;
+        rounding = 0;
+        active_opacity = 0.95;
+        inactive_opacity = 0.8;
 
         shadow = {
           enabled = false;
@@ -158,8 +265,8 @@
 
         blur = {
           enabled = true;
-          size = 3;
-          passes = 1;
+          size = 10;
+          passes = 3;
           vibrancy = 0.1696;
         };
       };
@@ -209,7 +316,8 @@
 
       misc = {
         force_default_wallpaper = -1;
-        disable_hyprland_logo = false;
+        disable_splash_rendering = true;
+        disable_hyprland_logo = true;
       };
 
       input = {
@@ -234,7 +342,7 @@
         "$mainMod, RETURN, exec, $terminal"
         "$mainMod, Q, killactive,"
         "$mainMod, E, exec, $fileManager"
-        "$mainMod, D, exec, $menu"
+        "$mainMod, SPACE, exec, $menu"
         "$mainMod, V, togglefloating,"
         "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo,"
@@ -319,6 +427,8 @@
   };
 
   home.sessionVariables = {
+    XCURSOR_THEME = "capitaine-cursors";
+    XCURSOR_SIZE = "24";
     # EDITOR = "emacs";
   };
 
