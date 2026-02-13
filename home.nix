@@ -91,9 +91,6 @@ in
     ./apps/hyprland/hyprland.nix
   ]
 
-  home.file = {
-  };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
