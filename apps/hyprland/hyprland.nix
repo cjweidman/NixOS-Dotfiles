@@ -29,7 +29,7 @@
 
       # AUTOSTART
       exec-once = [
-        "sh -lc 'wal --theme custom/bbOS --cols16'"
+        "sh -lc 'wal --theme bbOS --cols16'"
         "waybar"
         "mako"
         "sh -lc 'pgrep -x swww-daemon >/dev/null || swww-daemon'"

@@ -28,7 +28,7 @@ in
   xdg.configFile."wal/templates".source = "${pywalExtra}/templates";
 
   # custom bbOS theme
-  xdg.configFile."wal/colorschemes/custom/bbOS.json".text = ''
+  xdg.configFile."wal/colorschemes/dark/bbOS.json".text = ''
     {
       "wallpaper": "",
       "alpha": "100",
