@@ -64,7 +64,10 @@ in
   };
 
   # enables: wal --theme base16-...
-  xdg.configFile."wal/colorschemes".source = walColorSchemes;
+  xdg.configFile."wal/colorschemes" = {
+    source = walColorSchemes;
+    force = true;
+  };
 
   # enables template-driven outputs in ~/.cache/wal/ for apps
   xdg.configFile."wal/templates".source = "${pywalExtra}/templates";
