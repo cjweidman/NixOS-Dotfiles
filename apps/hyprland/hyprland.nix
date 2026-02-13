@@ -41,8 +41,8 @@
         gaps_in = 5;
         gaps_out = 10;
         border_size = 1;
-          "col.active_border" = "$color2 $color1 45deg";
-          "col.inactive_border" = "$color0";
+          "col.active_border" = "$foreground";
+          "col.inactive_border" = "$color8";
         resize_on_border = false;
         allow_tearing = false;
         layout = "dwindle";

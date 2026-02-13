@@ -22,31 +22,31 @@
 }
 
 window#waybar {
-    border: 1px solid #d7d7d7;
+    border: 1px solid @foreground;
 	background: @background;
 }
 
 label.module {
-	color: #d7d7d7;
+	color: @foreground;
 }
 
 /*  POWER GROUP  ------------------------- */
 
 #powergroup {
 	padding: 8px 13px 8px 12px;
-	background: #ed3d22;
+	background: @color9;
 }
 
 
 #powergroup #custom-arch {
 	margin: 0px 5px 0px 0px;
 	font-size: 18px;
-	color: #000000;
+	color: @background;
 }
 
 #powergroup .power-children label {
 	margin: 0px 5px 0px 20px;
-	color: #000000;
+	color: @background;
 }
 
 #powergroup #custom-arch,
@@ -54,7 +54,7 @@ label.module {
 #powergroup #custom-restart,
 #powergroup #custom-lock,
 #powergroup #custom-logout {
-  color: #000000;
+  color: @background;
 }
 
 
@@ -67,60 +67,60 @@ label.module {
 #workspaces button {
 	background: transparent;
 	padding: 1px 6px;
-	border-right: 1px solid #d7d7d7;
+	border-right: 1px solid @foreground;
 }
 
 #workspaces button label {
-	color: #d7d7d7;
+	color: @foreground;
 	font-size: 18px;
 	font-weight: 300;
 	letter-spacing: -3px;
 }
 
 #workspaces button.empty label {
-	color: #d7d7d7;
+	color: @foreground;
 }
 
 #workspaces button.active label {
-	color: #ed3d22;
+	color: @color9;
 }
 
 /*  CPU & RAM GROUP  --------------------------- */
 
 #cpugroup {
 	padding: 0px 10px;
-	border-right: 1px solid #d7d7d7;
+	border-right: 1px solid @foreground;
 }
 
 #memorygroup, #diskgroup {
 	padding: 0px 10px;
-	border-right: 1px solid #d7d7d7;
+	border-right: 1px solid @foreground;
 }
 
 #custom-cpu, #custom-end, #custom-memory, #custom-network, #custom-user, #custom-volume, #custom-disk {
-	color: #d7d7d7;
+	color: @foreground;
 }
 
 /*  CLOCK  ------------------------------- */
 
 #networkgroup {
 	padding: 0px 10px;
-	border-left: 1px solid #d7d7d7;
+	border-left: 1px solid @foreground;
 }
 
 #usergroup {
 	padding: 0px 10px;
-	border-left: 1px solid #d7d7d7;
+	border-left: 1px solid @foreground;
 }
 
 #network, #user, #wireplumber {
-	color: #d7d7d7;
+	color: @foreground;
 }
 
 #clockgroup {
 	padding: 0px 10px;
-	border-right: 1px solid #d7d7d7;
-	border-left: 1px solid #d7d7d7;
+	border-right: 1px solid @foreground;
+	border-left: 1px solid @foreground;
 }
 
 #volumegroup {
@@ -128,5 +128,5 @@ label.module {
 }
 
 #clock.date {
-  color: #d7d7d7;
+  color: @foreground;
 }
