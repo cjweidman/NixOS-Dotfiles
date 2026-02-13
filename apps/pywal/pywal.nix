@@ -14,21 +14,13 @@ let
     rev   = "491a8b721247e912b38d3be1af193d48f35ce56a";
     hash  = "sha256-yOUgtChMIsnquQZdX+5kmg0PVLzhOoXHB0YuVXRKb60=";
   };
-in
-{
-  programs.pywal = {
-    enable  = true;
-    package = pkgs.pywal16;
-  };
 
-  # enables: wal --theme base16-...
-  xdg.configFile."wal/colorschemes".source = "${pywalRepo}/pywal/colorschemes";
+  walColorSchemes = pkgs.runCommand "wal-colorschemes" {} ''
+    set -euo pipefail
+    mkdir -p "$out"
+    cp -R ${pywalRepo}/pywal/colorschemes/* "$out/"
 
-  # enables template-driven outputs in ~/.cache/wal/ for apps
-  xdg.configFile."wal/templates".source = "${pywalExtra}/templates";
-
-  # custom bbOS theme
-  xdg.configFile."wal/colorschemes/dark/bbOS.json".text = ''
+    cat > "$out/dark/bbOS.json" <<'EOF'
     {
       "wallpaper": "",
       "alpha": "100",
@@ -58,6 +50,18 @@ in
         "color15": "#ffffff"
       }
     }
+EOF
   '';
+in
+{
+  programs.pywal = {
+    enable  = true;
+    package = pkgs.pywal16;
+  };
 
+  # enables: wal --theme base16-...
+  xdg.configFile."wal/colorschemes".source = walColorSchemes;
+
+  # enables template-driven outputs in ~/.cache/wal/ for apps
+  xdg.configFile."wal/templates".source = "${pywalExtra}/templates";
 }
