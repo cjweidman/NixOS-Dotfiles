@@ -19,8 +19,13 @@ let
     set -euo pipefail
     mkdir -p "$out"
 
-    # copy contents of colorschemes (dark/, light/, etc.) into $out
-    cp -a ${pywalRepo}/pywal/colorschemes/. "$out/"
+    # Find pywal's packaged colorschemes inside the pywal16 install and copy them
+    src="$(find ${pkgs.pywal16} -type d -path '*/site-packages/pywal/colorschemes' | head -n1)"
+    test -n "$src"
+    cp -a "$src/." "$out/"
+
+    # Nix store perms are read-only; make the copied tree writable so we can add bbOS
+    chmod -R u+w "$out"
 
     mkdir -p "$out/dark"
     cat > "$out/dark/bbOS.json" <<'EOF'
@@ -63,12 +68,16 @@ in
     package = pkgs.pywal16;
   };
 
-    home.file.".config/wal/colorschemes" = {
-        source = walColorSchemes;
-        recursive = true;
-        force = true;
-    };
+  home.file.".config/wal/colorschemes" = {
+    source = walColorSchemes;
+    recursive = true;
+    force = true;
+  };
 
   # enables template-driven outputs in ~/.cache/wal/ for apps
-  xdg.configFile."wal/templates".source = "${pywalExtra}/templates";
+  xdg.configFile."wal/templates" = {
+    source = "${pywalExtra}/templates";
+    recursive = true;
+    force = true;
+  };
 }

@@ -1,18 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  c0 = "000000"; # background
-  c1 = "d7d7d7"; # foreground
-  c2 = "6b6b6b"; # muted
-  c3 = "ed3d22"; # accent
-
-  pal = [
-    c0 c1 c2 c3
-    c0 c1 c2 c3
-    c0 c1 c2 c3
-    c0 c1 c2 c3
-  ];
-in
 {
   home.username = "cjweidman";
   home.homeDirectory = "/home/cjweidman";
@@ -89,6 +76,7 @@ in
     ./apps/btop/btop.nix
     ./apps/foot/foot.nix
     ./apps/hyprland/hyprland.nix
+    ./apps/pywal/pywal.nix
   ];
 
   home.file = {
