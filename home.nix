@@ -89,7 +89,11 @@ in
     ./apps/btop/btop.nix
     ./apps/foot/foot.nix
     ./apps/hyprland/hyprland.nix
-  ]
+  ];
+
+  home.file = {
+    
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
