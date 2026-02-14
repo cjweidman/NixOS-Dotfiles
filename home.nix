@@ -34,6 +34,7 @@
 
     # Hyprland Ecosystem
     pywal16
+    pywalfox-native
     foot
     xfce.thunar
     rofi
