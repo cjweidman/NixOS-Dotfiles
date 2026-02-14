@@ -51,12 +51,12 @@
       decoration = {
         rounding = 0;
         active_opacity = 0.95;
-        inactive_opacity = 0.8;
+        inactive_opacity = 0.7;
 
         shadow = {
           enabled = false;
-          range = 4;
-          render_power = 3;
+          range = 2;
+          render_power = 1;
           color = "rgba(1a1a1aee)";
         };
 
@@ -95,7 +95,7 @@
           "layersOut,1,1.5,linear,fade"
           "fadeLayersIn,1,1.79,almostLinear"
           "fadeLayersOut,1,1.39,almostLinear"
-          "workspaces, 1, 8, ws, slide"
+          "workspaces,1,4.79,easeOutQuint"
           "workspacesIn,1,1.21,almostLinear,fade"
           "workspacesOut,1,1.94,almostLinear,fade"
           "zoomFactor,1,7,quick"
@@ -127,9 +127,10 @@
 
         follow_mouse = 1;
         sensitivity = 0.0;
+        scroll_factor = 0.5;
 
         touchpad = {
-          natural_scroll = false;
+          natural_scroll = true;
         };
       };
 
@@ -145,6 +146,8 @@
         "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
+        "bind = $mainMod, I, exec, hyprpicker -a -f hex"
+        "bind = $mainMod SHIFT, S, exec, hyprshot -m region -z --clipboard-only"
 
         # Move focus with mainMod + arrow keys
         "$mainMod, left, movefocus, l"

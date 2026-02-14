@@ -22,7 +22,7 @@
 }
 
 window#waybar {
-    border: 1px solid @foreground;
+    border: 1px solid @color8;
 	background: @background;
 }
 
@@ -36,7 +36,6 @@ label.module {
 	padding: 8px 13px 8px 12px;
 	background: @color9;
 }
-
 
 #powergroup #custom-arch {
 	margin: 0px 5px 0px 0px;
@@ -57,7 +56,6 @@ label.module {
   color: @background;
 }
 
-
 /*  WORKSPACES  -------------------------- */
 
 #workspaces {
@@ -67,7 +65,7 @@ label.module {
 #workspaces button {
 	background: transparent;
 	padding: 1px 6px;
-	border-right: 1px solid @foreground;
+	border-right: 1px solid @color8;
 }
 
 #workspaces button label {
@@ -78,7 +76,7 @@ label.module {
 }
 
 #workspaces button.empty label {
-	color: @foreground;
+	color: @color8;
 }
 
 #workspaces button.active label {
@@ -89,28 +87,28 @@ label.module {
 
 #cpugroup {
 	padding: 0px 10px;
-	border-right: 1px solid @foreground;
+	border-right: 1px solid @color8;
 }
 
 #memorygroup, #diskgroup {
 	padding: 0px 10px;
-	border-right: 1px solid @foreground;
+	border-right: 1px solid @color8;
 }
 
-#custom-cpu, #custom-end, #custom-memory, #custom-network, #custom-user, #custom-volume, #custom-disk {
-	color: @foreground;
+#custom-cpu, #custom-end, #custom-memory, #custom-network, #custom-user, #custom-volume, #custom-disk, #custom-start, #custom-mid {
+	color: @color8;
 }
 
 /*  CLOCK  ------------------------------- */
 
 #networkgroup {
 	padding: 0px 10px;
-	border-left: 1px solid @foreground;
+	border-left: 1px solid @color8;
 }
 
 #usergroup {
 	padding: 0px 10px;
-	border-left: 1px solid @foreground;
+	border-left: 1px solid @color8;
 }
 
 #network, #user, #wireplumber {
@@ -119,8 +117,8 @@ label.module {
 
 #clockgroup {
 	padding: 0px 10px;
-	border-right: 1px solid @foreground;
-	border-left: 1px solid @foreground;
+	border-right: 1px solid @color8;
+	border-left: 1px solid @color8;
 }
 
 #volumegroup {

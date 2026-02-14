@@ -77,6 +77,7 @@
     ./apps/foot/foot.nix
     ./apps/hyprland/hyprland.nix
     ./apps/pywal/pywal.nix
+    ./apps/rofi/rofi.nix
   ];
 
   home.file = {

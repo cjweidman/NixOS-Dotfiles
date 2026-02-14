@@ -48,7 +48,7 @@
 	"custom/arch": {
 		"format": "",
 		"tooltip": false,
-		"on-click": "kitty"
+		"on-click": "foot"
 	},
 
 	"custom/power": {
@@ -107,7 +107,7 @@
 
 	"custom/cpu": {
 		"format": "[CPU_",
-		"on-click": "kitty btop",
+		"on-click": "foot btop",
 		"tooltip": false
 	},
 
@@ -115,13 +115,13 @@
 		"interval": 1,
 		"format": "{}%",
 		"max-length": 10,
-		"on-click": "kitty btop",
+		"on-click": "foot btop",
 		"tooltip": false
 	},
 
 	"custom/memory": {
 		"format": "[RAM_",
-		"on-click": "kitty btop",
+		"on-click": "foot btop",
 		"tooltip": false
 	},
 
@@ -129,7 +129,7 @@
 		"interval": 30,
 		"format": "{}%",
 		"max-length": 10,
-		"on-click": "kitty btop",
+		"on-click": "foot btop",
 		"tooltip": false
 	},
 
@@ -149,7 +149,7 @@
 
 	"custom/disk": {
 		"format": "[HD_",
-		"on-click": "kitty btop",
+		"on-click": "foot btop",
 		"tooltip": false
 	},
 
@@ -157,7 +157,7 @@
 		"interval": 30,
 		"format": "{specific_used:0.2f}/{specific_total:0.2f}GB",
 		"unit": "GB",
-		"on-click": "kitty btop",
+		"on-click": "foot btop",
 		"tooltip": false
 	},
 
@@ -211,15 +211,35 @@
 	"group/clockgroup": {
 		"orientation": "horizontal",
 		"modules": [
-			"clock#date",
+			"custom/start",
+			"clock#month",
+			"custom/mid",
+			"clock#year",
+			"custom/mid",
 			"clock#time",
 			"custom/end"
 		]
-	},	
+	},
 
-	"clock#date": {
+	"custom/start": {
+		"format": "[",
+		"tooltip": false
+	},
+
+	"custom/mid": {
+		"format": "_",
+		"tooltip": false
+	},
+
+	"clock#month": {
 		"interval": 60,
-		"format": "[{:%m%d_%Y_}",
+		"format": "{:%m%d}",
+		"tooltip": false
+	},
+
+	"clock#year": {
+		"interval": 60,
+		"format": "{:%Y}",
 		"tooltip": false
 	},
 
