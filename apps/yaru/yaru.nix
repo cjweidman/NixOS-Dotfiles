@@ -4,7 +4,7 @@
     enable = true;
 
     theme = {
-      name = "Yaru";
+      name = "Yaru-dark";
       package = pkgs.yaru-theme;
     };
 
@@ -12,5 +12,16 @@
       name = "Yaru";
       package = pkgs.yaru-theme;
     };
+
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+  };
+
+  dconf.enable = true;
+  dconf.settings."org/gnome/desktop/interface" = {
+    gtk-theme = "Yaru-dark";
+    icon-theme = "Yaru";
+    color-scheme = "prefer-dark";
   };
 }

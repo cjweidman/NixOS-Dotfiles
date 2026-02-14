@@ -70,6 +70,9 @@
   hyprland
   greetd
   terminus_font
+  quickshell
+  uwsm
+  cage
   ];
 
   console = {
