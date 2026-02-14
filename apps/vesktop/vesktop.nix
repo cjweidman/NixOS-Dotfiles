@@ -8,4 +8,5 @@
     type = "Application";
     categories = [ "Network" "InstantMessaging" "Chat" ];
   };
+
 }

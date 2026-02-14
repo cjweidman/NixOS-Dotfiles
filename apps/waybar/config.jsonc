@@ -202,10 +202,11 @@
 	},
 
 	"network": {
-		"interface": "ens18",
+		"interface": "enp0s1",
 		"format": "{ifname}",
 		"max-length": 50,
-		"tooltip": false
+		"tooltip": false,
+		"on-click": "nm-connection-editor"
 	},
 
 	"group/clockgroup": {

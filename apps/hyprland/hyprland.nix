@@ -26,6 +26,7 @@
       "$terminal" = "foot";
       "$fileManager" = "foot yazi";
       "$menu" = "rofi -show drun";
+      "$browser" = "firefox";
 
       # AUTOSTART
       exec-once = [
@@ -34,6 +35,7 @@
         "mako"
         "sh -lc 'pgrep -x swww-daemon >/dev/null || swww-daemon'"
         "sh -lc 'swww img ${config.home.homeDirectory}/Pictures/Wallpapers/blkOS_WP1.png --transition-type none'"
+        "nm-applet --indicator"
       ];
 
       # LOOK & FEEL (sections => attrsets)
@@ -127,11 +129,8 @@
 
         follow_mouse = 1;
         sensitivity = 0.0;
-        scroll_factor = 0.5;
-
-        touchpad = {
-          natural_scroll = true;
-        };
+        scroll_factor = 0.25;
+        natural_scroll = true;
       };
 
       # BINDS (repeatable => list of strings)
@@ -146,6 +145,7 @@
         "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
+        "$mainMod, B, exec, $browser"
         "bind = $mainMod, I, exec, hyprpicker -a -f hex"
         "bind = $mainMod SHIFT, S, exec, hyprshot -m region -z --clipboard-only"
 

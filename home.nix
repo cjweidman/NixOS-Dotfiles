@@ -30,6 +30,11 @@
     XCURSOR_SIZE = "24";
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
   home.packages = with pkgs; [
 
     # Hyprland Ecosystem
@@ -46,6 +51,9 @@
     hyprpicker
     hyprshot
     capitaine-cursors
+    glib
+    gsettings-desktop-schemas
+    yaru-theme
 
     # Apps
     bitwarden-desktop
@@ -67,6 +75,11 @@
     fzf
     starship
     yazi
+    libnotify
+    networkmanagerapplet
+    adwaita-icon-theme
+    hicolor-icon-theme
+    p7zip
 
   ];
 
@@ -81,6 +94,8 @@
     ./apps/pywal/pywal.nix
     ./apps/rofi/rofi.nix
     ./apps/vesktop/vesktop.nix
+    ./apps/mako/mako.nix
+    ./apps/yaru/yaru.nix
   ];
 
   home.file = {
