@@ -24,7 +24,7 @@
 
       # PROGRAM VARIABLES
       "$terminal" = "foot";
-      "$fileManager" = "thunar";
+      "$fileManager" = "foot yazi";
       "$menu" = "rofi -show drun";
 
       # AUTOSTART

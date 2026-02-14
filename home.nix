@@ -66,6 +66,7 @@
     nano
     fzf
     starship
+    yazi
 
   ];
 
@@ -79,6 +80,7 @@
     ./apps/hyprland/hyprland.nix
     ./apps/pywal/pywal.nix
     ./apps/rofi/rofi.nix
+    ./apps/vesktop/vesktop.nix
   ];
 
   home.file = {
