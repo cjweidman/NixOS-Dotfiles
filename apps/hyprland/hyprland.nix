@@ -36,6 +36,7 @@
         "sh -lc 'pgrep -x swww-daemon >/dev/null || swww-daemon'"
         "sh -lc 'swww img ${config.home.homeDirectory}/Pictures/Wallpapers/blkOS_WP1.png --transition-type none'"
         "nm-applet --indicator"
+        "qs -c overview"
       ];
 
       # LOOK & FEEL (sections => attrsets)
@@ -146,8 +147,9 @@
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
         "$mainMod, B, exec, $browser"
-        "bind = $mainMod, I, exec, hyprpicker -a -f hex"
-        "bind = $mainMod SHIFT, S, exec, hyprshot -m region -z --clipboard-only"
+        "$mainMod, I, exec, hyprpicker -a -f hex"
+        "$mainMod SHIFT, S, exec, hyprshot -m region -z --clipboard-only"
+        "$mainMod, TAB, exec, qs ipc -c overview call overview toggle"
 
         # Move focus with mainMod + arrow keys
         "$mainMod, left, movefocus, l"

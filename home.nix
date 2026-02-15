@@ -54,6 +54,11 @@
     glib
     gsettings-desktop-schemas
     yaru-theme
+    qt6.qtwayland
+    qt6.qtsvg
+    qt6.qtimageformats
+    qt6.qtmultimedia
+    qt6.qt5compat
 
     # Apps
     bitwarden-desktop
@@ -96,6 +101,7 @@
     ./apps/vesktop/vesktop.nix
     ./apps/mako/mako.nix
     ./apps/yaru/yaru.nix
+    ./apps/quickshell/quickshell.nix
   ];
 
   home.file = {
