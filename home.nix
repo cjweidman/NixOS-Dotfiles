@@ -40,7 +40,7 @@
     # Hyprland Ecosystem
     pywal16
     pywalfox-native
-    foot
+    kitty
     xfce.thunar
     rofi
     waybar
@@ -94,7 +94,6 @@
     ./apps/fzf/fzf.nix
     ./apps/zsh/zsh.nix
     ./apps/btop/btop.nix
-    ./apps/foot/foot.nix
     ./apps/hyprland/hyprland.nix
     ./apps/pywal/pywal.nix
     ./apps/rofi/rofi.nix

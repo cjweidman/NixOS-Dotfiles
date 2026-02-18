@@ -23,8 +23,8 @@
       ];
 
       # PROGRAM VARIABLES
-      "$terminal" = "foot";
-      "$fileManager" = "foot yazi";
+      "$terminal" = "kitty";
+      "$fileManager" = "kitty yazi";
       "$menu" = "rofi -show drun";
       "$browser" = "firefox";
 
